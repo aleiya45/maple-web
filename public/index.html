@@ -9,13 +9,22 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="script" href="script.js">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script type="text/javascript">
+    (function(){
+       emailjs.init("tE23Iv181rfCxEb_1"); // Replace YOUR_PUBLIC_KEY from EmailJS
+    })();
+ </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Smooth scroll animations
@@ -84,29 +93,60 @@
             },
         });
     });
+    function sendEmail() {
+        var params = {
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+        };
+    
+        emailjs.send("service_06eiq87", "template_io27jnd", params)
+        .then(function(response) {
+            toastr.success("Message sent successfully! 🎉", 'Success');
+            document.getElementById("contact-form").reset();
+        }, function(error) {
+            toastr.error("Failed to send message. ❌ Please try again.", 'error');
+        });
+    
+        return false; // Prevent form from submitting normally
+    }
 </script>
-
-
-
 
 <body>
     <!-- Header Section -->
     <header>
-        <div class="header-container container">
+        <div class="header-container">
             <img src="images/maple-logo-with-out-bg.png" alt="Maple Study Abroad" class="logo" />
-            <nav>
-                <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-                <ul id="nav-list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <div style="display: flex;flex-direction: row;gap: 20px;align-items: center;">
+                <nav>
+                    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+                    <ul id="nav-list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="contact-container-web" style="display: flex;flex-direction: row;justify-content: start;align-items: center;background: #082567;padding: 20px;gap:20px">
+                    <img src="images/telephone-call.png" alt="phone" style="width: 60px;height: 60px;">
+                    <div style="display: flex;flex-direction: column;justify-content: start;align-items: center;">
+                        <h4 style="text-align:left;color: #fff;font-weight: 400;">Have Any Questions?</h4>
+                        <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="https://wa.me/9496075339" target="_blank">+91 9496075339</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
+    <div class="contact-container-mobile" style="display: flex;flex-direction: row;justify-content: start;align-items: center;background: #082567;padding: 20px;gap:20px;width:100%">
+        <img src="images/telephone-call.png" alt="phone" style="width: 60px;height: 60px;">
+        <div style="display: flex;flex-direction: column;justify-content: start;align-items: center;">
+            <h4 style="text-align:left;color: #fff;font-weight: 400;">Have Any Questions?</h4>
+            <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="https://wa.me/9496075339" target="_blank">+91 9496075339</a>
+        </div>
+    </div>
     <div class="menu-overlay"></div>
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="margin-top: 20px;">
         <div class="container container-hero">
             <div class="hero-content-section">
                 <h1>Explore the World <br/> with Confidence</h1>
@@ -159,10 +199,6 @@
             <h2>Study Destinations</h2>
             <div class="cards">
                 <div class="card">
-                    <img src="images/canada-flag.png" alt="Canada" />
-                    <h3>Canada</h3>
-                </div>
-                <div class="card">
                     <img src="images/united-kingdom-flag.png" alt="UK" />
                     <h3>United Kingdom</h3>
                 </div>
@@ -189,6 +225,10 @@
                 <div class="card">
                     <img src="images/new-zealand-flag.png" alt="Australia" />
                     <h3>New zeland</h3>
+                </div>
+                <div class="card">
+                    <img src="images/canada-flag.png" alt="Canada" />
+                    <h3>Canada</h3>
                 </div>
             </div>
         </div>
@@ -297,11 +337,11 @@
     <section id="contact" class="section">
         <div class="container">
             <h2>Contact Us</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required />
-                <input type="number" placeholder="Your Phone Number" required />
-                <input type="email" placeholder="Your Email" required />
-                <textarea placeholder="Your Message" required></textarea>
+            <form id="contact-form" class="contact-form" onsubmit="return sendEmail();">
+                <input id="name" type="text" placeholder="Your Name" required />
+                <input id="phone" type="number" placeholder="Your Phone Number" required />
+                <input id="email" type="email" placeholder="Your Email" required />
+                <textarea id="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn">Send Message</button>
             </form>
         </div>
@@ -331,11 +371,11 @@
                 </div>
                 <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
                     <img src="images/telephone-call.png" alt="telephone-call" style="width: 20px;height: 20px;">
-                    <p style="text-align:left">+91 9496075339</p>
+                    <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="https://wa.me/9496075339" target="_blank">+91 9496075339</a>
                 </div>
                 <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
                     <img src="images/email.png" alt="telephone-call" style="width: 20px;height: 20px;">
-                    <p style="text-align:left">Info@maplestudy.co.in</p>
+                    <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="mailto:info@maplestudy.co.in">Info@maplestudy.co.in</a>
                 </div>
                 
             </div>

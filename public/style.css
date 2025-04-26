@@ -38,7 +38,6 @@ body {
 /* Header */
 header {
     background: linear-gradient(to bottom, #cce6ff, #ffffff);
-    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -49,6 +48,7 @@ header {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding-left: 50px;
 }
 
 .logo {
@@ -105,13 +105,38 @@ nav ul li a:focus {
 .menu-overlay.active {
     display: block;
 }
-
+.contact-container-web{
+    display: block;
+}
+.contact-container-mobile{
+    display: none !important;
+}
 /* Mobile Styles */
-@media (max-width: 600px) {
+@media (max-width: 660px) {
+    .contact-container-mobile{
+        display: flex !important;
+    }
+    .contact-container-web{
+        display: none !important;
+    }
     .menu-toggle {
         display: block;
     }
-
+    .hero h1 {
+        font-size: 30px;
+    }
+    
+    .hero p {
+        margin-top: 10px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
     nav ul {
         position: fixed;
         top: 0;
