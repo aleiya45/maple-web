@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maple Study Abroad</title>
+    <link rel="icon" type="image/png" href="images/maple-logo-with-out-bg.png" sizes="128x128" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scroll animations
+        const elementsToObserve = document.querySelectorAll(".scroll-fade, .fade-in-up");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        elementsToObserve.forEach((el) => {
+            el.classList.add("hidden");
+            observer.observe(el);
+        });
+
+        // Responsive menu toggle
+        const toggleBtn = document.getElementById("menu-toggle");
+        const navList = document.getElementById("nav-list");
+        const overlay = document.querySelector(".menu-overlay");
+
+        if (toggleBtn && navList && overlay) {
+            toggleBtn.addEventListener("click", () => {
+                navList.classList.toggle("show");
+                overlay.classList.toggle("active");
+            });
+
+            overlay.addEventListener("click", () => {
+                navList.classList.remove("show");
+                overlay.classList.remove("active");
+            });
+        }
+
+        // Initialize Swiper Carousel for Reviews
+        const swiper = new Swiper('.reviews-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000, // 5 seconds
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+            autoplay: {
+                delay: 5000, // 5 seconds
+                disableOnInteraction: false,
+            },
+        });
+    });
+</script>
+
+
+
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container container">
+            <img src="images/maple-logo-with-out-bg.png" alt="Maple Study Abroad" class="logo" />
+            <nav>
+                <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+                <ul id="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="menu-overlay"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container container-hero">
+            <div class="hero-content-section">
+                <h1>Explore the World <br/> with Confidence</h1>
+                <p>Maple Study Abroad is your trusted partner for<br/> global education opportunities </p>
+                <a href="#contact" class="btn">Get Free Consultation ➞</a>
+            </div>  
+            <img src="images/banner-crop.png" alt="">
+        </div>
+
+    </section>
+    <!-- Service Section -->
+    <section id="services">
+        <div class="services-section">
+            <div class="service-card blue">
+                <div class="icon">✈️</div>
+                <h3>A to Z Study Abroad Support</h3>
+            </div>
+
+            <div class="service-card blue">
+                <div class="icon">👨‍🏫</div>
+                <h3>Counseling and Guidance</h3>
+            </div>
+
+            <div class="service-card blue">
+                <div class="icon">🌐</div>
+                <h3>Pre-Departure Orientation</h3>
+            </div>
+
+            <div class="service-card red">
+                <div class="icon">📒</div>
+                <h3>Application Assistance</h3>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <!-- <section id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>
+                We guide students to achieve their academic dreams abroad with trusted
+                advice and expert services.
+            </p>
+        </div>
+    </section> -->
+
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="section">
+        <div class="container">
+            <h2>Study Destinations</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="images/canada-flag.png" alt="Canada" />
+                    <h3>Canada</h3>
+                </div>
+                <div class="card">
+                    <img src="images/united-kingdom-flag.png" alt="UK" />
+                    <h3>United Kingdom</h3>
+                </div>
+                <div class="card">
+                    <img src="images/australia-flag.jpg" alt="Australia" />
+                    <h3>Australia</h3>
+                </div>
+                <div class="card">
+                    <img src="images/austria-flag.jpg" alt="Australia" />
+                    <h3>Austria</h3>
+                </div>
+                <div class="card">
+                    <img src="images/germany-flag.png" alt="Australia" />
+                    <h3>Germany</h3>
+                </div>
+                <div class="card">
+                    <img src="images/sweden-flag.png" alt="Australia" />
+                    <h3>Sweden</h3>
+                </div>
+                <div class="card">
+                    <img src="images/ireland-flag-png.png" alt="Australia" />
+                    <h3>Ireland</h3>
+                </div>
+                <div class="card">
+                    <img src="images/new-zealand-flag.png" alt="Australia" />
+                    <h3>New zeland</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="consultation-section container">
+        <div class="consultation-container">
+          <div class="consultation-image">
+            <img src="images/free-consutation.jpg" alt="Consultation Image">
+          </div>
+          <div class="consultation-content">
+            <h2>FREE CONSULTATION</h2>
+            <p>Dreaming of studying abroad? Our expert consultants offer <strong>free personalized guidance</strong> to help you find the perfect program and university. Let’s make your dream a reality together!</p>
+            <a href="#contact" class="consultation-btn">Contact Us Now ➞</a>
+          </div>
+        </div>
+      </section>      
+    <!--Visa-services section -->
+    <section class="visa-services container" style="margin-top: 50px;">
+        <h2>Visa Services</h2>
+        <p>Expert visa assistance for your global journeys.</p>
+        <div class="card-container">
+          <div class="visa-card">
+            <img src="images/graduate.png" alt="Student Visa Icon" class="visa-icon">
+            <h3>Student Visa</h3>
+            <p>Start your global education journey with our student visa services! We assist you in securing visas for the UK, Canada, and more.</p>
+            <a href="#contact" class="visa-btn">Visa Consultant</a>
+          </div>
+      
+          <div class="visa-card">
+            <img src="images/family.png" alt="Permanent Residency Icon" class="visa-icon">
+            <h3>Permanent Residency</h3>
+            <p>Build a bright future abroad with our guidance on Permanent Residency applications for Canada, Australia, and other countries.</p>
+            <a href="#contact" class="visa-btn">Visa Consultant</a>
+          </div>
+      
+          <div class="visa-card">
+            <img src="images/parental-control.png" alt="Visit Visa Icon" class="visa-icon">
+            <h3>Visit Visa</h3>
+            <p>Explore new destinations easily with our expert visit visa services for Canada, the UK, and Ireland.</p>
+            <a href="#contact" class="visa-btn">Visa Consultant</a>
+          </div>
+        </div>
+      </section>
+      
+<!-- Link Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<section class="reviews-section container">
+  <h2>Reviews</h2>
+<div style="display: flex;flex-direction: row; justify-content: space-between;align-items: center;gap: 20px;flex-wrap: wrap;max-width: 1100px;width:100%">
+    <div style="display: flex;flex-direction: row;justify-content: start;align-items: center;gap: 10px;">
+        <img src="images/google-logo.png" alt="Google Logo" class="google-logo">
+        <h3>5.0 Rating <br/> ⭐⭐⭐⭐⭐</h3>
+      </div>
+    <a href="#" class="read-reviews-btn">↗ Read Reviews</a>
+</div>
+  
+  <!-- Swiper -->
+  <div class="swiper reviews-slider" style="margin-top: 30px;">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide review-card">
+        <div class="review">
+          <h4>Elizabeth Wilson</h4>
+          <p class="review-text">
+            I am extremely happy with the service and care of the staff members. Thank you for helping me out with my visa! Highly recommend.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide review-card">
+        <h3>Amala Maria Alex</h3>
+        <p class="review-text">
+          Your team made the entire PR process smooth and hassle-free. I really appreciate the expertise and quick support provided. Highly recommended!
+        </p>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide review-card">
+        <h3>Sibin Joseph</h3>
+        <p class="review-text">
+          Excellent guidance and prompt communication! You made the entire study abroad process stress-free. Thank you so much!
+        </p>
+      </div>
+          <!-- Slide 4 -->
+      <div class="swiper-slide review-card">
+        <h3>Sibin Joseph</h3>
+        <p class="review-text">
+          Excellent guidance and prompt communication! You made the entire study abroad process stress-free. Thank you so much!
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Link Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required />
+                <input type="number" placeholder="Your Phone Number" required />
+                <input type="email" placeholder="Your Email" required />
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-log">
+                <img src="images/maple-new-logo.jpg" alt="" style="width: 100px;height: 100px;">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+                <h3 style="text-align: left;">Services</h3>
+                <ul>
+                    <li style="text-align: left;">Study Abroad Consultation</li>
+                    <li style="text-align: left;">Visa Assistance</li>
+                    <li style="text-align: left;">Pre departure consultation</li>
+                    <li style="text-align: left;">Immigration Support</li>
+                    <li style="text-align: left;">Application Assistance</li>
+                </ul>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+                <h3 style="text-align: left;">Contact</h3>
+                <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
+                    <img src="images/location.png" alt="location" style="width: 20px;height: 20px;">
+                    <p style="text-align:left">Maple study abroad, Teejay estate, Ground Floor,<br/> Civil line road palarivattom, Cochin, 682025</p>
+                </div>
+                <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
+                    <img src="images/telephone-call.png" alt="telephone-call" style="width: 20px;height: 20px;">
+                    <p style="text-align:left">+91 9496075339</p>
+                </div>
+                <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
+                    <img src="images/email.png" alt="telephone-call" style="width: 20px;height: 20px;">
+                    <p style="text-align:left">Info@maplestudy.co.in</p>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="container footer" style="border-top: 1px solid #fff;padding-top: 20px;">
+            <p>&copy; 2025 Maple Study Abroad. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
