@@ -1,405 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Maple Study Abroad</title>
-    <link rel="icon" type="image/png" href="images/maple-logo-with-out-bg.png" sizes="128x128" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="script" href="script.js">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-</head>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.6.1/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.6.1/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/11.6.1/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/11.6.1/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/11.6.1/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/11.6.1/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/11.6.1/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/11.6.1/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/11.6.1/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/11.6.1/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-<script type="text/javascript">
-    (function(){
-       emailjs.init("tE23Iv181rfCxEb_1"); // Replace YOUR_PUBLIC_KEY from EmailJS
-    })();
- </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Smooth scroll animations
-        const elementsToObserve = document.querySelectorAll(".scroll-fade, .fade-in-up");
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                } else {
-                    entry.target.classList.remove("visible");
-                }
-            });
-        }, { threshold: 0.2 });
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-        elementsToObserve.forEach((el) => {
-            el.classList.add("hidden");
-            observer.observe(el);
-        });
-
-        // Responsive menu toggle
-        const toggleBtn = document.getElementById("menu-toggle");
-        const navList = document.getElementById("nav-list");
-        const overlay = document.querySelector(".menu-overlay");
-
-        if (toggleBtn && navList && overlay) {
-            toggleBtn.addEventListener("click", () => {
-                navList.classList.toggle("show");
-                overlay.classList.toggle("active");
-            });
-
-            overlay.addEventListener("click", () => {
-                navList.classList.remove("show");
-                overlay.classList.remove("active");
-            });
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
         }
-
-        // Initialize Swiper Carousel for Reviews
-        const swiper = new Swiper('.reviews-slider', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 5000, // 5 seconds
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            },
-            autoplay: {
-                delay: 5000, // 5 seconds
-                disableOnInteraction: false,
-            },
-        });
-    });
-    function sendEmail() {
-        var params = {
-            name: document.getElementById("name").value,
-            phone: document.getElementById("phone").value,
-            email: document.getElementById("email").value,
-            message: document.getElementById("message").value,
-        };
-    
-        emailjs.send("service_06eiq87", "template_io27jnd", params)
-        .then(function(response) {
-            toastr.success("Message sent successfully! 🎉", 'Success');
-            document.getElementById("contact-form").reset();
-        }, function(error) {
-            toastr.error("Failed to send message. ❌ Please try again.", 'error');
-        });
-    
-        return false; // Prevent form from submitting normally
-    }
-</script>
-
-<body>
-    <!-- Header Section -->
-    <header>
-        <div class="header-container">
-            <img src="images/maple-logo-with-out-bg.png" alt="Maple Study Abroad" class="logo" />
-            <div style="display: flex;flex-direction: row;gap: 20px;align-items: center;">
-                <nav>
-                    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-                    <ul id="nav-list">
-                        <li><a href="index.html"style="color: #082567;">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="contact-container-web" style="display: flex;flex-direction: row;justify-content: start;align-items: center;background: #082567;padding: 20px;gap:20px">
-                    <img src="images/telephone-call.png" alt="phone" style="width: 60px;height: 60px;">
-                    <div style="display: flex;flex-direction: column;justify-content: start;align-items: center;">
-                        <h4 style="text-align:left;color: #fff;font-weight: 400;">Have Any Questions?</h4>
-                        <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="tel:8714065060" target="_blank">+91 8714065060</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="contact-container-mobile" style="display: flex;flex-direction: row;justify-content: start;align-items: center;background: #082567;padding: 20px;gap:20px;width:100%">
-        <img src="images/telephone-call.png" alt="phone" style="width: 60px;height: 60px;">
-        <div style="display: flex;flex-direction: column;justify-content: start;align-items: center;">
-            <h4 style="text-align:left;color: #fff;font-weight: 400;">Have Any Questions?</h4>
-            <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="tel:8714065060" target="_blank">+91 9496075339</a>
-        </div>
-    </div>
-    <div class="menu-overlay"></div>
-    <!-- Hero Section -->
-    <section class="hero" style="margin-top: 20px;">
-        <div class="container container-hero">
-            <div class="hero-content-section">
-                <h1 style="color: #001f5b;">Explore the World <br/> with Confidence</h1>
-                <p>Maple Study Abroad is your trusted partner for<br/> global education opportunities </p>
-                <a href="#contact" class="btn">Get Free Consultation ➞</a>
-            </div>  
-            <img src="images/banner-crop.png" alt="">
-        </div>
-    </section>
-    <!-- Service Section -->
-    <section id="services">
-        <div class="services-section">
-            <div class="service-card blue">
-                <div class="icon">✈️</div>
-                <h3>A to Z Study Abroad Support</h3>
-            </div>
-
-            <div class="service-card blue">
-                <div class="icon">👨‍🏫</div>
-                <h3>Counseling and Guidance</h3>
-            </div>
-
-            <div class="service-card blue">
-                <div class="icon">🌐</div>
-                <h3>Pre-Departure Orientation</h3>
-            </div>
-
-            <div class="service-card red">
-                <div class="icon">📒</div>
-                <h3>Application Assistance</h3>
-            </div>
-        </div>
-    </section>
-    <!-- About Section -->
-    <!-- <section id="about" class="section">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>
-                We guide students to achieve their academic dreams abroad with trusted
-                advice and expert services.
-            </p>
-        </div>
-    </section> -->
-
-
-    <!-- Destinations Section -->
-    <section id="destinations" class="section">
-        <div class="container">
-            <h2>Study Destinations</h2>
-            <div class="cards">
-                <div class="card">
-                    <img src="images/united-kingdom-flag.png" alt="UK" />
-                    <h3>United Kingdom</h3>
-                    <a href="#contact" class="btn" style="margin-top: 10px;font-size: 16px;">Enqire Now</a>
-                </div>
-                <div class="card">
-                    <img src="images/australia-flag.jpg" alt="Australia" />
-                    <h3>Australia</h3>
-                    <a href="#contact" class="btn" style="margin-top: 10px;font-size: 16px;">Enqire Now</a>
-                </div>
-                <div class="card">
-                    <img src="images/austria-flag.jpg" alt="Australia" />
-                    <h3>Austria</h3>
-                    <a href="#contact" class="btn" style="margin-top: 10px;font-size: 16px;">Enqire Now</a>
-                </div>
-                <div class="card">
-                    <img src="images/germany-flag.png" alt="Australia" />
-                    <h3>Germany</h3>
-                    <a href="#contact" class="btn" style="margin-top: 10px;font-size: 16px;">Enqire Now</a>
-                </div>
-                <div class="card">
-                    <img src="images/sweden-flag.png" alt="Australia" />
-                    <h3>Sweden</h3>
-                    <a href="#contact" class="btn" style="margin-top: 10px;font-size: 16px;">Enqire Now</a>
-                </div>
-                <div class="card">
-                    <img src="images/ireland-flag-png.png" alt="Australia" />
-                    <h3>Ireland</h3>
-                    <a href="#contact" class="btn" style="margin-top: 10px;font-size: 16px;">Enqire Now</a>
-                </div>
-                <div class="card">
-                    <img src="images/new-zealand-flag.png" alt="Australia" />
-                    <h3>New zeland</h3>
-                    <a href="#contact" class="btn" style="margin-top: 10px;font-size: 16px;">Enqire Now</a>
-                </div>
-                <div class="card">
-                    <img src="images/canada-flag.png" alt="Canada" />
-                    <h3>Canada</h3>
-                    <a href="#contact" class="btn" style="margin-top: 10px;font-size: 16px;">Enqire Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="consultation-section container">
-        <div class="consultation-container">
-          <div class="consultation-image">
-            <img src="images/free-consutation.jpg" alt="Consultation Image">
-          </div>
-          <div class="consultation-content">
-            <h2>FREE CONSULTATION</h2>
-            <p>Dreaming of studying abroad? Our expert consultants offer <strong>free personalized guidance</strong> to help you find the perfect program and university. Let’s make your dream a reality together!</p>
-            <a href="#contact" class="consultation-btn">Contact Us Now ➞</a>
-          </div>
-        </div>
-      </section>      
-    <!--Visa-services section -->
-    <section class="visa-services container" style="margin-top: 50px;">
-        <h2>Visa Services</h2>
-        <p>Expert visa assistance for your global journeys.</p>
-        <div class="card-container">
-          <div class="visa-card">
-            <img src="images/graduate.png" alt="Student Visa Icon" class="visa-icon">
-            <h3>Student Visa</h3>
-            <p>Start your global education journey with our student visa services! We assist you in securing visas for the UK, Canada, and more.</p>
-            <a href="#contact" class="visa-btn">Visa Consultant</a>
-          </div>
-      
-          <div class="visa-card">
-            <img src="images/family.png" alt="Permanent Residency Icon" class="visa-icon">
-            <h3>Permanent Residency</h3>
-            <p>Build a bright future abroad with our guidance on Permanent Residency applications for Canada, Australia, and other countries.</p>
-            <a href="#contact" class="visa-btn">Visa Consultant</a>
-          </div>
-      
-          <div class="visa-card">
-            <img src="images/parental-control.png" alt="Visit Visa Icon" class="visa-icon">
-            <h3>Visit Visa</h3>
-            <p>Explore new destinations easily with our expert visit visa services for Canada, the UK, and Ireland.</p>
-            <a href="#contact" class="visa-btn">Visa Consultant</a>
-          </div>
-        </div>
-      </section>
-      
-<!-- Link Swiper CSS -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-
-<section class="reviews-section container">
-  <h2>Reviews</h2>
-<div style="display: flex;flex-direction: row; justify-content: space-between;align-items: center;gap: 20px;flex-wrap: wrap;max-width: 1100px;width:100%">
-    <div style="display: flex;flex-direction: row;justify-content: start;align-items: center;gap: 10px;">
-        <img src="images/google-logo.png" alt="Google Logo" class="google-logo">
-        <h3>5.0 Rating <br/> ⭐⭐⭐⭐⭐</h3>
-      </div>
-    <a href="#" class="read-reviews-btn">↗ Read Reviews</a>
-</div>
-  
-  <!-- Swiper -->
-  <div class="swiper reviews-slider" style="margin-top: 30px;">
-    <div class="swiper-wrapper">
-      <!-- Slide 1 -->
-      <div class="swiper-slide review-card">
-        <div class="review">
-          <h4>Elizabeth Wilson</h4>
-          <p class="review-text">
-            I am extremely happy with the service and care of the staff members. Thank you for helping me out with my visa! Highly recommend.
-          </p>
-        </div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="swiper-slide review-card">
-        <h3>Amala Maria Alex</h3>
-        <p class="review-text">
-          Your team made the entire PR process smooth and hassle-free. I really appreciate the expertise and quick support provided. Highly recommended!
-        </p>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="swiper-slide review-card">
-        <h3>Sibin Joseph</h3>
-        <p class="review-text">
-          Excellent guidance and prompt communication! You made the entire study abroad process stress-free. Thank you so much!
-        </p>
-      </div>
-          <!-- Slide 4 -->
-      <div class="swiper-slide review-card">
-        <h3>Sibin Joseph</h3>
-        <p class="review-text">
-          Excellent guidance and prompt communication! You made the entire study abroad process stress-free. Thank you so much!
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Link Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div style="display: flex;flex-direction: row;gap:30px;justify-content: center;align-items: center;">
-                <a href="https://wa.me/8714065060" class="btn" style="display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 20px;width: 300px;color:#34C346;background-color: #fff;border: 1px solid #34C346;"><img src="images/whatsapp.png" alt="whatsapp" style="width: 30px;height: 30px;"> <span style="font-size: 20px;font-weight: 500;">Whatsapp</span></a>
-                <a href="tel:8714065060" class="btn" style="display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 20px;width: 300px;color:#082567;background-color: #fff;border: 1px solid #082567;"><img src="images/telephone-call -blue.png" alt="telephone-call" style="width: 30px;height: 30px;"><span style="font-size: 20px;font-weight: 500;">Phone</span></a>
-            </div>
-            <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;width: 100%;">
-                <h4 style="margin-top: 20px;font-size: 30px;background-color: #082567;color: #fff;padding: 10px;width: 70px;border-radius: 50%;">OR</h4>
-            </div>
-            
-            <form id="contact-form" class="contact-form" onsubmit="return sendEmail();">
-                <input id="name" type="text" placeholder="Your Name" required />
-                <input id="phone" type="number" placeholder="Your Phone Number" required />
-                <input id="email" type="email" placeholder="Your Email" required />
-                <textarea id="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-log">
-                <img src="images/maple-new-logo.jpg" alt="" style="width: 100px;height: 100px;">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:10px">
-                <h3 style="text-align: left;">Services</h3>
-                <ul>
-                    <li style="text-align: left;">Study Abroad Consultation</li>
-                    <li style="text-align: left;">Visa Assistance</li>
-                    <li style="text-align: left;">Pre departure consultation</li>
-                    <li style="text-align: left;">Immigration Support</li>
-                    <li style="text-align: left;">Application Assistance</li>
-                </ul>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:10px">
-                <h3 style="text-align: left;">Contact</h3>
-                <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
-                    <img src="images/location.png" alt="location" style="width: 20px;height: 20px;">
-                    <p style="text-align:left;word-break: break-all;">Maple study abroad, Teejay estate, Ground Floor,<br/> Civil line road palarivattom, Cochin, 682025</p>
-                </div>
-                <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
-                    <img src="images/telephone-call.png" alt="telephone-call" style="width: 20px;height: 20px;">
-                    <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="tel:8714065060" target="_blank">+91 8714065060</a>
-                </div>
-                <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
-                    <img src="images/email.png" alt="telephone-call" style="width: 20px;height: 20px;">
-                    <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="mailto:info@maplestudy.co.in">Info@maplestudy.co.in</a>
-                </div>
-                
-            </div>
-        </div>
-        
-        <div class="container footer" style="border-top: 1px solid #fff;padding-top: 20px;">
-            <p>&copy; 2025 Maple Study Abroad. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-
+      });
+    </script>
+  </body>
 </html>

@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Maple Study Abroad</title>
-    <link rel="icon" type="image/png" href="images/maple-logo-with-out-bg.png" sizes="128x128" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="../images/maple-logo-with-out-bg.png" sizes="128x128" />
+    <link rel="stylesheet" href="../style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="script" href="script.js">
@@ -19,11 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
-<script type="text/javascript">
-    (function () {
-        emailjs.init("tE23Iv181rfCxEb_1"); // Replace YOUR_PUBLIC_KEY from EmailJS
-    })();
-</script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Smooth scroll animations
@@ -60,43 +56,25 @@
                 overlay.classList.remove("active");
             });
         }
-        function sendEmail() {
-            var params = {
-                name: document.getElementById("name").value,
-                phone: document.getElementById("phone").value,
-                email: document.getElementById("email").value,
-                message: document.getElementById("message").value,
-            };
-
-            emailjs.send("service_06eiq87", "template_io27jnd", params)
-                .then(function (response) {
-                    toastr.success("Message sent successfully! 🎉", 'Success');
-                    document.getElementById("contact-form").reset();
-                }, function (error) {
-                    toastr.error("Failed to send message. ❌ Please try again.", 'error');
-                });
-
-            return false; // Prevent form from submitting normally
-        }
     });
 </script>
 
 <body>
     <header>
         <div class="header-container">
-            <img src="images/maple-logo-with-out-bg.png" alt="Maple Study Abroad" class="logo" />
+            <img src="../images/maple-logo-with-out-bg.png" alt="Maple Study Abroad" class="logo" />
             <div style="display: flex;flex-direction: row;gap: 20px;align-items: center;">
                 <nav>
                     <div class="menu-toggle" id="menu-toggle">&#9776;</div>
                     <ul id="nav-list">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html" style="color: #082567;">Contact</a></li>
+                        <li><a href="../home/index.html">Home</a></li>
+                        <li><a href="about.html"style="color: #082567;">About</a></li>
+                        <li><a href="../contact-us/contact.html">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="contact-container-web"
                     style="display: flex;flex-direction: row;justify-content: start;align-items: center;background: #082567;padding: 20px;gap:20px">
-                    <img src="images/telephone-call.png" alt="phone" style="width: 60px;height: 60px;">
+                    <img src="../images/telephone-call.png" alt="phone" style="width: 60px;height: 60px;">
                     <div style="display: flex;flex-direction: column;justify-content: start;align-items: center;">
                         <h4 style="text-align:left;color: #fff;font-weight: 400;">Have Any Questions?</h4>
                         <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;"
@@ -107,7 +85,7 @@
         </div>
     </header>
     <div class="contact-container-mobile" style="display: flex;flex-direction: row;justify-content: start;align-items: center;background: #082567;padding: 20px;gap:20px;width:100%">
-        <img src="images/telephone-call.png" alt="phone" style="width: 60px;height: 60px;">
+        <img src="../images/telephone-call.png" alt="phone" style="width: 60px;height: 60px;">
         <div style="display: flex;flex-direction: column;justify-content: start;align-items: center;">
             <h4 style="text-align:left;color: #fff;font-weight: 400;">Have Any Questions?</h4>
             <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="tel:8714065060" target="_blank">+91 9496075339</a>
@@ -116,73 +94,89 @@
     <div class="menu-overlay"></div>
     <section class="container section">
         <div style="display: flex;flex-direction: column;width: 100%;">
-            <h2 style="text-align: center;">Contact Us</h2>
-            <h4 style="text-align: center;font-size: 34px;font-weight: 400;">Get In <span style="font-weight: 600;">Touch</span></h4>
+            <h2 style="text-align: center;">About Us</h2>
+            <h4 style="text-align: center;;margin-top: 20px;">Welcome to Maple Study Abroad — Your Trusted Partner in Overseas Education.</h4>
+            <div class="about-content-container">
+                <div class="location-container" style="height: 100%">
+                    <h4 style="text-align:left;color: #fff;font-size: 22px;">Location</h4>
+                    <p style="text-align:left;color: #fff">Maple study abroad, Teejay estate, Ground Floor,<br/> Civil line road palarivattom, Cochin, 682025</p>
+                    <h4 style="text-align:left;color: #fff;;font-size: 22px;">Phone</h4>
+                    <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="tel:8714065060" target="_blank">+91 9496075339</a>
+                    <h4 style="text-align:left;color: #fff;;font-size: 22px;">Email</h4>
+                    <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;" href="mailto:info@maplestudy.co.in">Info@maplestudy.co.in</a>
+                </div>
+                <div class="about-contnet-section">
+                    <p style="text-align: justify;margin-top: 20px;">Maple Study Abroad brings over 20 years of expertise in helping students and professionals achieve their
+                        dreams of studying abroad. Our dedicated team offers comprehensive support throughout every stage of
+                        your journey — from university applications to post-arrival assistance.
+                        We pride ourselves on offering personalized guidance, ensuring a smooth, transparent, and stress-free
+                        experience. Whether you're aiming to study in Canada, New Zealand, the United Kingdom, Australia,
+                        Germany, or other top destinations, we are here to make your global aspirations a reality.
+                    </p>
+                    <h4 style="margin-top: 20px;text-align: left;">Our Services Include:</h4>
+                    <ul style="padding-left: 30px;text-align: left;">
+                        <li>University and College Applications</li>
+                        <li>Visa Guidance and Processing</li>
+                        <li>Statement of Purpose (SOP) & Documentation Support</li>
+                        <li>Financial Planning and Scholarship Assistance</li>
+                        <li>Pre-Departure Briefings and Post-Arrival Support</li>
+                    </ul>
+                    <p style="text-align: justify;margin-top: 20px;">At Maple Study Abroad, we believe every student’s journey is unique. That's why we take the time to
+                        understand your goals, provide tailored solutions, and stay by your side every step of the way.</p>
+                </div>
+            </div>
+            <h4 style="text-align: center;margin-top: 40px;font-size: large;">Your journey starts here — and we’re ready to make it happen!</h4>
         </div>
     </section>
-
-    <section id="contanct-us">
+    <!-- Destinations Section -->
+    <section id="destinations" class="section">
         <div class="container">
-            <div class="contact-us-card-container">
-                <div class="contact-us-card" style="background: #001f5b;">
-                    <img src="images/location.png" alt="location">
-                    <h4 style="color: #fff;">Our Location</h4>
-                    <p style="color: #fff;">Maple study abroad, Teejay estate, Ground Floor, Civil line road
-                        palarivattom, Cochin, 682025</p>
+            <h2>Study Destinations</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="../images/united-kingdom-flag.png" alt="UK" />
+                    <h3>United Kingdom</h3>
                 </div>
-                <div class="contact-us-card">
-                    <img src="images/telephone-call.png" alt="telephone-call" class="active">
-                    <img src="images/telephone-call -blue.png" alt="telephone-call" class="inactive">
-                    <h4>Call Us</h4>
-                    <a style="cursor: pointer;text-decoration: none;" href="tel:8714065060"
-                        target="_blank">+91 8714065060</a>
+                <div class="card">
+                    <img src="../images/australia-flag.jpg" alt="Australia" />
+                    <h3>Australia</h3>
                 </div>
-                <div class="contact-us-card">
-                    <img src="images/email.png" alt="email" class="active">
-                    <img src="images/email-blue.png" alt="email" class="inactive">
-                    <h4>Email Us</h4>
-                    <a style="cursor: pointer;text-decoration: none;"
-                        href="mailto:info@maplestudy.co.in">Info@maplestudy.co.in</a>
+                <div class="card">
+                    <img src="../images/austria-flag.jpg" alt="Australia" />
+                    <h3>Austria</h3>
                 </div>
-                <div class="contact-us-card">
-                    <img src="images/telephone-call.png" alt="telephone-call" class="active">
-                    <img src="images/telephone-call -blue.png" alt="telephone-call" class="inactive">
-                    <h4>Work Hours</h4>
-                    <p>Mon-Sat: 10:00 am- 06:00 pm Sunday : Closed</p>
+                <div class="card">
+                    <img src="../images/germany-flag.png" alt="Australia" />
+                    <h3>Germany</h3>
+                </div>
+                <div class="card">
+                    <img src="../images/sweden-flag.png" alt="Australia" />
+                    <h3>Sweden</h3>
+                </div>
+                <div class="card">
+                    <img src="../images/ireland-flag-png.png" alt="Australia" />
+                    <h3>Ireland</h3>
+                </div>
+                <div class="card">
+                    <img src="../images/new-zealand-flag.png" alt="Australia" />
+                    <h3>New zeland</h3>
+                </div>
+                <div class="card">
+                    <img src="../images/canada-flag.png" alt="Canada" />
+                    <h3>Canada</h3>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="section container">
-        <iframe src="https://www.google.com/maps/embed?pb=YOUR_LONG_EMBED_CODE" width="100%" height="550"
-            style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div style="display: flex;flex-direction: row;gap:30px;justify-content: center;align-items: center;">
-                <a href="https://wa.me/8714065060" class="btn" style="display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 20px;width: 300px;color:#34C346;background-color: #fff;border: 1px solid #34C346;"><img src="images/whatsapp.png" alt="whatsapp" style="width: 30px;height: 30px;"> <span style="font-size: 20px;font-weight: 500;">Whatsapp</span></a>
-                <a href="tel:8714065060" class="btn" style="display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 20px;width: 300px;color:#082567;background-color: #fff;border: 1px solid #082567;"><img src="images/telephone-call -blue.png" alt="telephone-call" style="width: 30px;height: 30px;"><span style="font-size: 20px;font-weight: 500;">Phone</span></a>
-            </div>
-            <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;width: 100%;">
-                <h4 style="margin-top: 20px;font-size: 30px;background-color: #082567;color: #fff;padding: 10px;width: 70px;border-radius: 50%;">OR</h4>
-            </div>
-            <form id="contact-form" class="contact-form" onsubmit="return sendEmail();">
-                <input id="name" type="text" placeholder="Your Name" required />
-                <input id="phone" type="number" placeholder="Your Phone Number" required />
-                <input id="email" type="email" placeholder="Your Email" required />
-                <textarea id="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+    <section class="container section">
+        <div>
+            <img src="../images/promontion-post-2.jpg" alt="promotion-poster" class="premotion-banner">
         </div>
     </section>
     <footer>
         <div class="footer-container">
             <div class="footer-log">
-                <img src="images/maple-new-logo.jpg" alt="" style="width: 100px;height: 100px;">
+                <img src="../images/maple-new-logo.jpg" alt="" style="width: 100px;height: 100px;">
             </div>
             <div style="display:flex;flex-direction:column;gap:10px">
                 <h3 style="text-align: left;">Services</h3>
@@ -197,17 +191,17 @@
             <div style="display:flex;flex-direction:column;gap:10px">
                 <h3 style="text-align: left;">Contact</h3>
                 <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
-                    <img src="images/location.png" alt="location" style="width: 20px;height: 20px;">
+                    <img src="../images/location.png" alt="location" style="width: 20px;height: 20px;">
                     <p style="text-align:left;word-break: break-all;">Maple study abroad, Teejay estate, Ground Floor,<br /> Civil line road
                         palarivattom, Cochin, 682025</p>
                 </div>
                 <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
-                    <img src="images/telephone-call.png" alt="telephone-call" style="width: 20px;height: 20px;">
+                    <img src="../images/telephone-call.png" alt="telephone-call" style="width: 20px;height: 20px;">
                     <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;"
-                        href="tel:8714065060" target="_blank">+91 8714065060</a>
+                        href="https://wa.me/8714065060" target="_blank">+91 8714065060</a>
                 </div>
                 <div style="display:flex;flex-direction:row;justify-content:start;gap:10px">
-                    <img src="images/email.png" alt="telephone-call" style="width: 20px;height: 20px;">
+                    <img src="../images/email.png" alt="telephone-call" style="width: 20px;height: 20px;">
                     <a style="text-align:left;color: #fff;font-weight: 400;cursor: pointer;text-decoration: none;"
                         href="mailto:info@maplestudy.co.in">Info@maplestudy.co.in</a>
                 </div>
